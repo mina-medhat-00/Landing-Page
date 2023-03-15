@@ -1,25 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Poppins&display=swap");
 
-/*--------Base Rules--------*/
-html {
-  scroll-behavior: smooth;
-}
+/*--- Base Rules ---*/
 * {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: #fff;
-  background: rgb(136, 203, 171);
-  background: linear-gradient(
-    0deg,
-    rgba(136, 203, 171, 1) 0%,
-    rgba(0, 13, 60, 1) 100%
-  );
+  background: rgb(97, 150, 124);
 }
 
-/* Typeography General*/
+/*--- Typography General ---*/
 h1 {
   font-size: 3em;
   margin: 2em 1rem;
@@ -27,7 +20,7 @@ h1 {
 
 @media only screen and (min-width: 35em) {
   h1 {
-    font-size: 7em;
+    font-size: 4em;
     margin: 2em 4rem 1em;
   }
 }
@@ -44,7 +37,7 @@ p {
   color: #eee;
 }
 
-/*--------Layout Rules--------*/
+/*--- Layout Rules ---*/
 main {
   margin: 10vh 1em 10vh;
 }
@@ -59,8 +52,7 @@ section {
   padding-top: 3em;
 }
 
-/*--------Module Rules--------*/
-/* Navigation Styles*/
+/*--- Navbar ---*/
 .navbar__menu ul {
   padding-left: 0;
   margin: 0;
@@ -71,7 +63,6 @@ section {
   display: inline-block;
 }
 
-/* the highlight class for active sections in the navbar*/
 .navbar__menu .highlight {
   color: #fff !important;
   background: #333 !important;
@@ -92,7 +83,7 @@ section {
   cursor: pointer;
 }
 
-/* Header Styles */
+/*--- Header ---*/
 .page__header {
   background: #fff;
   position: fixed;
@@ -101,7 +92,7 @@ section {
   z-index: 5;
 }
 
-/* Footer Styles */
+/*--- Footer ---*/
 .page__footer {
   background: #202020;
   padding: 3rem;
@@ -116,16 +107,22 @@ section {
 
 .main_footer_container {
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
-  justify-content: space-around;
+  /* flex-wrap: wrap; */
 }
 
 .main_footer_container ul {
+  margin: 0;
+  padding: 0;
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footer_container {
-  flex-basis: 100%;
+  width: 25%;
 }
 
 .footer_container > p {
@@ -145,8 +142,23 @@ section {
   margin-bottom: 5px;
 }
 
-/*--------Theme Rules--------*/
-/* Landing Container Styles */
+.footer_link {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
+  .main_footer_container {
+    flex-direction: column;
+  }
+  .footer_container {
+    width: 90%;
+  }
+}
+
+/*--- Landing Container ---*/
+
 .landing__container {
   padding: 1em;
   text-align: left;
@@ -165,8 +177,7 @@ section:nth-of-type(even) .landing__container {
   text-align: right;
 }
 
-/*--------Theme State Rules--------*/
-/* Section Active Styles */
+/*--- Section Active ---*/
 
 section.active {
   background: rgb(0, 0, 0);
@@ -185,14 +196,4 @@ section.active .landing__container::before {
 section.active .landing__container::after {
   opacity: 1;
   animation: rotate 5s linear 0s infinite forwards reverse;
-}
-
-/* Section Active Styles Keyframe Animations */
-@keyframes rotate {
-  from {
-    transform: rotate(0deg) translate(-1em) rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg) translate(-1em) rotate(-360deg);
-  }
 }
