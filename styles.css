@@ -109,7 +109,6 @@ section {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  /* flex-wrap: wrap; */
 }
 
 .main_footer_container ul {
